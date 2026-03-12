@@ -1,0 +1,24 @@
+# Compiled Java files
+*.class
+
+# Build folders
+bin/
+build/
+out/
+target/
+
+# IntelliJ
+.idea/
+
+# VS Code
+.vscode/
+
+# NetBeans
+nbproject/
+
+# Logs
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
