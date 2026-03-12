@@ -9,7 +9,6 @@ public class AverageOfPositiveNumbers {
         int count = 0;
         while (true) {
             int value = Integer.valueOf(scanner.nextLine());
-            
             if (value == 0) {
                 break;
             }
@@ -25,6 +24,5 @@ public class AverageOfPositiveNumbers {
         } else {
             System.out.println(1.0 * sum / count);
         }
-        
     }
 }
