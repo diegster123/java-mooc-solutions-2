@@ -8,10 +8,10 @@ public class LiquidContainers2 {
         Container container1 = new Container();
         Container container2 = new Container();
 
-        System.out.println("First: " + container1);
-        System.out.println("Second: " + container2);
-
         while (true) {
+            System.out.println("First: " + container1);
+            System.out.println("Second: " + container2);
+            System.out.print("> ");
             String input = scan.nextLine();
             if (input.equals("quit")) {
                 break;
@@ -38,8 +38,6 @@ public class LiquidContainers2 {
             }
 
             System.out.println(" ");
-            System.out.println("First: " + container1);
-            System.out.println("Second: " + container2);
         }
     }
 
