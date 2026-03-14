@@ -16,7 +16,6 @@ public class LiquidContainers2 {
             if (input.equals("quit")) {
                 break;
             }
-
             String[] parts = input.split(" ");
             String command = parts[0];
             int amount = Integer.valueOf(parts[1]);
@@ -24,7 +23,6 @@ public class LiquidContainers2 {
             if (command.equals("add")) {
                 container1.add(amount);
             }
-
             if (command.equals("move")) {
                 if (amount > container1.contains()) {
                     amount = container1.contains();
@@ -32,11 +30,9 @@ public class LiquidContainers2 {
                 container1.remove(amount);
                 container2.add(amount);
             }
-
             if (command.equals("remove")) {
                 container2.remove(amount);
             }
-
             System.out.println(" ");
         }
     }
