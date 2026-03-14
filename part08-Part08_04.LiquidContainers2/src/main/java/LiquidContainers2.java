@@ -11,7 +11,7 @@ public class LiquidContainers2 {
         while (true) {
             System.out.println("First: " + container1);
             System.out.println("Second: " + container2);
-            System.out.print("> ");
+            
             String input = scan.nextLine();
             if (input.equals("quit")) {
                 break;
