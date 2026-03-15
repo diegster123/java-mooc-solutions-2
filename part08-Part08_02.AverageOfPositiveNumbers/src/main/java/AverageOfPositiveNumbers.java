@@ -15,8 +15,6 @@ public class AverageOfPositiveNumbers {
             if (value > 0) {
                 sum += value;
                 count++;
-            } else {
-                continue;
             }
         }
         if (count == 0) {
