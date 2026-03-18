@@ -37,5 +37,9 @@ public class LicensePlate {
         
         return false;
     }
+    
+    public int hashCode() {
+        return this.country.hashCode() + this.liNumber.hashCode();
+    }
 
 }
