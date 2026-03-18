@@ -51,4 +51,14 @@ public class SimpleDate {
         return this.year - other.year - yearRemoved;
     }
 
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + this.year;
+        result = 31 * result + this.month;
+        result = 31 * result + this.day;
+
+        return result;
+    }
+
 }
