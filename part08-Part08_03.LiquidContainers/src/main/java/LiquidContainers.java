@@ -8,16 +8,15 @@ public class LiquidContainers {
         int initialValueOne = 0;
         int initialValueTwo = 0;
         int boundary = 100;
-        
-        System.out.println("First: " + initialValueOne + "/" + boundary);
-        System.out.println("Second: " + initialValueTwo + "/" + boundary);
-        
+
         while (true) {
+            System.out.println("First: " + initialValueOne + "/" + boundary);
+            System.out.println("Second: " + initialValueTwo + "/" + boundary);
             String input = scan.nextLine();
             if (input.equals("quit")) {
                 break;
             }
-            
+
             String[] parts = input.split(" ");
             String command = parts[0];
             int amount = Integer.valueOf(parts[1]);
@@ -28,7 +27,7 @@ public class LiquidContainers {
                     initialValueOne = boundary;
                 }
             }
-            
+
             if (command.equals("move") && amount >= 0) {
                 if (amount > initialValueOne) {
                     amount = initialValueOne;
@@ -39,17 +38,15 @@ public class LiquidContainers {
                     initialValueTwo = boundary;
                 }
             }
-            
+
             if (command.equals("remove") && amount >= 0) {
                 initialValueTwo -= amount;
                 if (initialValueTwo < 0) {
                     initialValueTwo = 0;
                 }
-            } 
-            
+            }
+
             System.out.println("");
-            System.out.println("First: " + initialValueOne + "/" + boundary);
-            System.out.println("Second: " + initialValueTwo + "/" + boundary);
         }
     }
 }
