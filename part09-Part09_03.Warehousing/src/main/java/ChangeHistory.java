@@ -25,6 +25,10 @@ public class ChangeHistory {
     public void clear() {
         this.list.clear();
     }
+    
+    public String toString() {
+        return this.list.toString();
+    }
 
     public double maxValue() {
         if (this.list.isEmpty()) {
