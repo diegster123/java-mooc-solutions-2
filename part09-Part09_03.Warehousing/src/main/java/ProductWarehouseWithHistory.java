@@ -28,8 +28,9 @@ public class ProductWarehouseWithHistory extends ProductWarehouse{
     }
     
     public double takeFromWarehouse(double amount) {
-        this.history.add(super.getBalance() - amount);
-        return super.takeFromWarehouse(amount);
+        double taken = super.takeFromWarehouse(amount);
+        this.history.add(super.getBalance());
+        return taken;
     }
     
     public void printAnalysis() {
