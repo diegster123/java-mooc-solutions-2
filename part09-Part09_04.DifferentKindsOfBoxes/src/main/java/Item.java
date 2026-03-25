@@ -21,4 +21,25 @@ public class Item {
         return weight;
     }
 
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof Item)) {
+            return false;
+        }
+        Item objectCompare = (Item) obj;
+
+        if (objectCompare.name.equals(this.name)) {
+            return true;
+        }
+
+        return false;
+    }
+    
+    public int hashCode() {      
+        return this.name.hashCode();
+    }
+
 }
