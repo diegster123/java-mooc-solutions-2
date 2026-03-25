@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,24 +12,29 @@
  * @author Admin
  */
 public class BoxWithMaxWeight extends Box{
-    Item item;
-    int capacity;
+    private ArrayList<Item> items;
+    private int capacity;
     
     public BoxWithMaxWeight(int capacity) {
         this.capacity = capacity;
+        this.items = new ArrayList<>();
     }
 
     @Override
     public void add(Item item) {
-        if (item.getWeight() > this.capacity) {
-            return;
+        int weight = 0;
+        for (Item stored : this.items) {
+            weight += stored.getWeight();
         }
-        BoxWithMaxWeight.this.add(item);
+        
+        if (weight + item.getWeight() <= this.capacity) {
+            this.items.add(item);
+        }
     }
 
     @Override
     public boolean isInBox(Item item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.items.contains(item);
     }
     
 }
