@@ -6,27 +6,38 @@ import java.util.*;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Admin
  */
 public class ShoppingCart {
-    Map<String, Integer> cart;
-    
+
+    private Map<String, Item> cart;
+
     public ShoppingCart() {
         this.cart = new HashMap<>();
     }
-    
+
     public void add(String product, int price) {
-        this.cart.put(product, price);
+        if (this.cart.containsKey(product)) {
+            this.cart.get(product).increaseQuantity();
+        } else {
+            this.cart.put(product, new Item(product, 1, price));
+        }
     }
-    
+
     public int price() {
         int total = 0;
-        for (int price : this.cart.values()) {
-            total += price;
+        for (Item item : this.cart.values()) {
+            total += item.price();
         }
         return total;
     }
+
+    public void print() {
+        for (Item item : this.cart.values()) {
+            System.out.println(item);
+        }
+    }
+
 }
