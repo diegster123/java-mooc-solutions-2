@@ -18,7 +18,6 @@ public class LimitedNumbers {
         }
 
         list.stream()
-            .mapToInt(i -> i)
             .filter(i -> i >= 1 && i <= 5)
             .forEach(value -> System.out.println(value));
 
