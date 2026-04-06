@@ -21,18 +21,18 @@ public class BooksFromFile {
 
     }
     
-    public static List<Book> readBooks(String file) {
-        List<Book> list = new ArrayList<>();
+    public static List<Book> readBooks(String file) {   
         try {
-            Files.lines(Paths.get(file)).map(row -> row.split(","))
+            return Files.lines(Paths.get(file))
+                    .map(row -> row.split(","))
                     .filter(parts -> parts.length >= 4)
                     .map(parts -> new Book(parts[0], Integer.valueOf(parts[1]), Integer.valueOf(parts[2]), parts[3]))
-                    .forEach(book -> list.add(book));
+                    .collect(Collectors.toList());
         } catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
         
-        return list;
+        return new ArrayList<>();
     }
 
 }
