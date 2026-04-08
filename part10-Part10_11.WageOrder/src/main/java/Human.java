@@ -26,6 +26,7 @@ public class Human implements Comparable<Human>{
     @Override
     public int compareTo(Human human) {
         return human.wage - this.wage;
+//        other solution
 //        if (this.wage > human.wage) {
 //            return -1;
 //        } else if (this.wage < human.wage) {
