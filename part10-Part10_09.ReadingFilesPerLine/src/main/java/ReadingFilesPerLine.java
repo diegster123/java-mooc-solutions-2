@@ -16,15 +16,15 @@ public class ReadingFilesPerLine {
 
     }
     public static List<String> read(String file) {
-        List<String> list = new ArrayList<>();
         try {
-            Files.lines(Paths.get(file))
+            return Files.lines(Paths.get(file))
                     .map(line -> line)
-                    .forEach(line -> list.add(line));
+                    .collect(Collectors.toList());
         }catch(Exception e){
             System.out.println("Error: " + e.getMessage());
         }
-        return list;
+        
+        return new ArrayList<>();
     }
 
 }
