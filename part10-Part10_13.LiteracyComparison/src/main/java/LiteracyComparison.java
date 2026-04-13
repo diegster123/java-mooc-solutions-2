@@ -22,12 +22,12 @@ public class LiteracyComparison {
             Files.lines(Paths.get(file)).map(line -> line.split(","))
                     .filter(line -> line.length >= 6)
                     .map(parts -> new Literacy(
-                            parts[0].trim(), 
-                            parts[1].trim(), 
+                            parts[0], 
+                            parts[1], 
                             parts[2].replace("(%)", "").trim(), 
-                            parts[3].trim(), 
-                            Integer.valueOf(parts[4].trim()), 
-                            Double.valueOf(parts[5].trim())))
+                            parts[3], 
+                            Integer.valueOf(parts[4]), 
+                            Double.valueOf(parts[5])))
                     .forEach(line -> list.add(line));
         } catch (IOException e) {
             System.out.println("Error:" + e.getMessage());
