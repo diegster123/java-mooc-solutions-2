@@ -4,3 +4,5 @@
 This repository will contain my solutions to the Java Programming II course from the University of Helsinki’s MOOC platform: 
 
 [java-programming.mooc.fi](java-programming.mooc.fi) 
+
+[Certificate](https://certificates.mooc.fi/validate/7fi2xc8jbvg)
