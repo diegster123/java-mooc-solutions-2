@@ -21,7 +21,7 @@ public class LotteryRow {
         // Implement the random number generation here
         // the method containsNumber is probably useful
         Random numbers = new Random();
-        while (this.numbers.size() != 7) {
+        while (this.numbers.size() < 7) {
             int number = numbers.nextInt(40) + 1;
             if (!containsNumber(number)) {
                 this.numbers.add(number);
