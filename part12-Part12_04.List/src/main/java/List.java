@@ -72,4 +72,8 @@ public class List<T> {
 
         return this.array[index];
     }
+
+    public int size() {
+        return this.firstFreeIndex;
+    }
 }

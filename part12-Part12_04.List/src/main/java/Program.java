@@ -22,6 +22,8 @@ public class Program {
             }
             System.out.println(strings.contains(input));
         }
+        
+        System.out.println(strings.size());
     }
 
 }
