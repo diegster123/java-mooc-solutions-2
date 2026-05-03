@@ -12,6 +12,10 @@ public class Program {
             System.out.print(number + " ");
         }
         System.out.println("");
+
+        LotteryRow lotteryRow = new LotteryRow();
+        System.out.println(lotteryRow.numbers());
+        lotteryRow.randomizeNumbers();
+        System.out.println(lotteryRow.numbers());
     }
 }
-
