@@ -9,8 +9,9 @@ public class Program {
         
         System.out.println("How many random numbers should be printed?");
         int length = Integer.parseInt(scanner.nextLine());
-        for (int i = 0; i < length; i++) {
-            Random numbers = new Random();
+        
+        Random numbers = new Random();
+        for (int i = 0; i < length; i++) {           
             System.out.println(numbers.nextInt(11));
         }
     }
