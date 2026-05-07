@@ -8,9 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
-
-public class ButtonAndTextFieldApplication extends Application{
-
+public class ButtonAndTextFieldApplication extends Application {
 
     public static void main(String[] args) {
         launch(ButtonAndTextFieldApplication.class);
@@ -22,11 +20,15 @@ public class ButtonAndTextFieldApplication extends Application{
         Button button = new Button("Hello");
         TextField text = new TextField();
         FlowPane components = new FlowPane();
+        components.setVgap(8);
+        components.setHgap(4);
+        components.setPrefWrapLength(300); // preferred width = 300
+       
         components.getChildren().add(button);
         components.getChildren().add(text);
-        
+
         Scene scene = new Scene(components);
-        
+
         window.setScene(scene);
         window.show();
     }
