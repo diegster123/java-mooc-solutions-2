@@ -15,14 +15,15 @@ public class ShanghaiApplication extends Application {
 
     @Override
     public void start(Stage window) throws Exception {
-        NumberAxis xAxis = new NumberAxis(2006, 2018, 4);
-        NumberAxis yAxis = new NumberAxis(0, 100, 4);
+        NumberAxis xAxis = new NumberAxis(2006, 2018, 1);
+        NumberAxis yAxis = new NumberAxis(0, 100, 5);
 
         xAxis.setLabel("Year");
         yAxis.setLabel("Ranking");
 
         LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
         lineChart.setTitle("University of Helsinki, Shanghai Ranking");
+        lineChart.setLegendVisible(false);
         
         XYChart.Series yearData = new XYChart.Series();
         yearData.getData().add(new XYChart.Data(2007, 73));
