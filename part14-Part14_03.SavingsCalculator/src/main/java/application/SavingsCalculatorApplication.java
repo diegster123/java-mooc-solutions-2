@@ -54,35 +54,13 @@ public class SavingsCalculatorApplication extends Application {
         yearlyInterest.setRight(interest);
 
         // Approach 1: Using a ChangeListener to display the values in the right hand side
-//        monthlySavingsSlider.valueProperty().addListener(new ChangeListener<Number>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-//                amount.setText(String.format("%.2f", newValue));
-//                lineChart.getData().clear();
-//                XYChart.Series savingsData = new XYChart.Series();
-//                for (int i = 0; i <= 30; i++) {
-//                    double yearlySavings = (double)newValue * 12 * i;
-//                    savingsData.getData().add(new XYChart.Data(i, yearlySavings));
-//                }
-//                lineChart.getData().add(savingsData);
-//            }
-//        });
         monthlySavingsSlider.valueProperty().addListener((change, oldvalue, newValue) -> {
             amount.setText(String.format("%.1f", newValue));
-            lineChart.getData().clear();
-            XYChart.Series savingsData = new XYChart.Series();
-            for (int i = 0; i <= 30; i++) {
-                double yearlySavings = (double)newValue * 12 * i;
-                savingsData.getData().add(new XYChart.Data(i, yearlySavings));
-            }
-            lineChart.getData().add(savingsData);
+            updateChart(lineChart, monthlySavingsSlider.getValue(), yearlySavingsSlider.getValue());
         });
 
-        yearlySavingsSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                interest.setText(String.format("%.2f", newValue));
-            }
+        yearlySavingsSlider.valueProperty().addListener((change, oldValue, newValue) -> {
+            updateChart(lineChart, monthlySavingsSlider.getValue(), yearlySavingsSlider.getValue());
         });
 
         topComponent.getChildren().addAll(monthlySavings, yearlyInterest);
@@ -96,4 +74,21 @@ public class SavingsCalculatorApplication extends Application {
 
     }
 
+    public static void updateChart(LineChart<Number, Number> chart, double monthlyValue, double interestRate) {
+        chart.getData().clear();
+        XYChart.Series<Number, Number> savingsData = new XYChart.Series();
+        for (int i = 0; i <= 30; i++) {
+            double yearlySavings = monthlyValue * 12 * i;
+            savingsData.getData().add(new XYChart.Data(i, yearlySavings));
+        }
+
+        XYChart.Series<Number, Number> interestData = new XYChart.Series();
+        double savings = 0;
+        for (int i = 0; i <= 30; i++) {
+            savings += monthlyValue * 12;
+            savings = savings * (1 + interestRate / 100);
+            interestData.getData().add(new XYChart.Data(i, savings));
+        }
+        chart.getData().addAll(savingsData, interestData);
+    }
 }
