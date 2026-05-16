@@ -34,7 +34,7 @@ public class SavingsCalculatorApplication extends Application {
         //VBOX for monthly savings and yearly interest
         VBox topComponent = new VBox();
         BorderPane monthlySavings = new BorderPane();
-        Slider monthlySavingsSlider = new Slider(500, 60000, 2000);
+        Slider monthlySavingsSlider = new Slider(25, 250, 25);
         monthlySavingsSlider.setShowTickLabels(true);
         monthlySavingsSlider.setShowTickMarks(true);
 
@@ -54,18 +54,28 @@ public class SavingsCalculatorApplication extends Application {
         yearlyInterest.setRight(interest);
 
         // Approach 1: Using a ChangeListener to display the values in the right hand side
-        monthlySavingsSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                amount.setText(String.format("%.2f", newValue));
-                lineChart.getData().clear();
-                XYChart.Series savingsData = new XYChart.Series();
-                for (int i = 0; i <= 30; i++) {
-                    double yearlySavings = (double)newValue * 12 * i;
-                    savingsData.getData().add(new XYChart.Data(i, yearlySavings));
-                }
-                lineChart.getData().add(savingsData);
+//        monthlySavingsSlider.valueProperty().addListener(new ChangeListener<Number>() {
+//            @Override
+//            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+//                amount.setText(String.format("%.2f", newValue));
+//                lineChart.getData().clear();
+//                XYChart.Series savingsData = new XYChart.Series();
+//                for (int i = 0; i <= 30; i++) {
+//                    double yearlySavings = (double)newValue * 12 * i;
+//                    savingsData.getData().add(new XYChart.Data(i, yearlySavings));
+//                }
+//                lineChart.getData().add(savingsData);
+//            }
+//        });
+        monthlySavingsSlider.valueProperty().addListener((change, oldvalue, newValue) -> {
+            amount.setText(String.format("%.1f", newValue));
+            lineChart.getData().clear();
+            XYChart.Series savingsData = new XYChart.Series();
+            for (int i = 0; i <= 30; i++) {
+                double yearlySavings = (double)newValue * 12 * i;
+                savingsData.getData().add(new XYChart.Data(i, yearlySavings));
             }
+            lineChart.getData().add(savingsData);
         });
 
         yearlySavingsSlider.valueProperty().addListener(new ChangeListener<Number>() {
